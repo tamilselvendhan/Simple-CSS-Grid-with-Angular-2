@@ -1,0 +1,95 @@
+<!-- <div class="grid-container">
+  <div class="item1" >
+      <span class="glyphicon glyphicon-search InputIcons" ></span>
+       <input class="SearchText" type="text" placeholder="Search">
+       <div class="username">
+         <span style="padding: 5px;">User Name</span>
+         <img src="../assets/images/men.jpg" height="40" alt="" style="border-left: solid 2px;
+         border-right: solid 2px;">
+         <p class="caretIcon">  <span class="glyphicon glyphicon-triangle-bottom" style="vertical-align: middle;"></span></p>
+       </div>
+  </div>
+  <div class="item2" >
+    <div class="name" (click)="getPeopleDetails(p)" *ngFor="let p of people">
+        <p style="padding: 60px;">{{p.name}} 
+          <span *ngIf="peopleDet.name==p.name" class="glyphicon glyphicon-triangle-right" style="vertical-align: middle;"></span></p>
+    </div>
+    </div>
+ 
+      <div class="item3">
+        <div class="part1">
+          <img src="{{peopleDet.img}}" alt="" align="left">
+        </div>
+        <div class="part2">
+            <button class="sendButton">Send Message</button>
+        </div>
+        <div style="display: inline-block;vertical-align: middle;margin-right: 15px;"  *ngFor="let p of people; let i = index" (click)="favourite(p, $event, i)">
+          <p style.color="{{color}}" class="gt" style="vertical-align: middle"> <span class="glyphicon glyphicon-heart"  style="vertical-align: middle;font-size: 50px;"></span></p>
+        </div>
+          <div class="description">
+              {{peopleDet.Description}}
+          </div>
+          <div class="likes">
+            <tr>
+             <th>Likes</th>
+             <th>Dis Likes</th>
+            </tr>
+            <tr *ngFor="let a of peopleDet.Likes">
+              <td>{{a}}</td>
+            </tr>
+            
+          </div>
+      </div>
+</div> -->
+<div class="grid-container">
+  <div class="item1" >
+<!--        <span class="glyphicon glyphicon-search InputIcons" ></span>
+       <input class="SearchText" type="text" [(ngModel)]="queryString" placeholder="Search"> -->
+    <div class="inner-addon left-addon">
+          <i class="glyphicon glyphicon-search"></i>
+          <input style=" width: 300px;border-radius: 15px;margin-left: 50px;" type="text" [(ngModel)]="queryString" class="form-control" placeholder="Search" />
+        </div>
+        <i *ngIf="queryString.length>0" class="glyphicon glyphicon-remove-sign" style="font-size: 16px;
+        margin-left: -28px;" (click)="clearSearchText()"></i>
+       <div class="username">
+         <span style="padding: 5px;font-size: 15px;letter-spacing: 1px;">User Name</span>
+         <img src="../assets/images/men.jpg" height="50" alt="" style="border-left: solid 2px;
+         border-right: solid 2px;">
+         <p class="caretIcon">  <span class="glyphicon glyphicon-triangle-bottom" style="vertical-align: middle;font-size: 15px;"></span></p>
+       </div>
+  </div>
+  <div class="item2" >
+    <div class="name" style.background-color="{{peopleDet.name==p.name ? '#ccc' : ''}}" (click)="getPeopleDetails(p)" *ngFor="let p of people | PeopleFilter: queryString ">
+        <p style="padding: 60px;">{{p.name}}
+          <span *ngIf="peopleDet.name==p.name" class="glyphicon glyphicon-triangle-right" style="vertical-align: middle;"></span></p>
+    </div>
+    </div>
+
+      <div class="item3">
+        <div class="part1">
+          <img src="{{peopleDet.img}}" alt="" align="left">
+        </div>
+        <div class="part2">
+            <button class="sendButton" (click)="sendMessage()">Send Message</button>
+        </div>
+        <div style="display: inline-block;vertical-align: middle;margin-right: 15px;"  *ngFor="let f of fav; let i = index" (click)="favourite(i)">
+          <p style.color="{{f.color}}" class="gt" style="vertical-align: middle">
+            <span class="glyphicon glyphicon-heart" style="vertical-align: middle;font-size: 50px;"></span></p>
+        </div>
+          <div class="description">
+              {{peopleDet.Description}}
+          </div>
+           <div class="likes">
+          <table border="1" style="width:80%">
+          <tr>
+          <th>Likes</th>
+          <th>Dis Likes</th>
+          </tr>
+          <tr *ngFor="let a of peopleDet.Likes; let u = index">
+          <td>{{a}}</td>
+          <td>{{peopleDet.Dislikes[u]}}</td>
+          </tr>
+          </table>
+          </div>
+      </div>
+</div>

@@ -1,0 +1,133 @@
+.item1 { grid-area: header; }
+.item2 { grid-area: menu;  }
+.item3 { grid-area: main; padding-left: 50px;padding-top: 50px; }
+/* .item4 { grid-area: right; } */
+/* .item5 { grid-area: footer; } */
+
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-areas:
+    'header header header header header header'
+    'menu menu main main main main';
+  grid-gap: 5px;
+  background-color: black;
+  padding: 5px;
+  /* grid-template-rows: 10% 90%; */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid-container > div {
+  background-color: white;
+  /* text-align: center; */
+  //padding: 20px 0;
+  font-size: 30px;
+}
+
+.sendButton{
+    height: 80px;
+    width: 305px;
+    padding: 20px;
+    /* margin: 0 auto; */
+    margin-left: 5px;
+    background-color: #ccc;
+    border: solid 2px;
+    border-radius: 15px;
+    outline: none;
+}
+
+.description{
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.SearchText{
+    width: 250px;
+    border: none;
+    border-radius: 15px;
+    border: solid 1px #ccc;
+    height: 25px;
+    /* position: relative; */
+    margin: 5px;
+    float: left;
+    outline: none;
+    font-size: 12px;
+}
+
+.username{
+    display: inline;
+    float: right;
+    margin-right: 50px;
+}
+.caretIcon{
+    display: inline;
+    padding: 2px;
+}
+.name{
+    height: calc(100% / 5);
+    border-bottom: solid 2px;
+}
+.item2 .name:last-child {
+    border-bottom: 0px;
+}
+.heart{
+    /* background-color: red; */
+    height: 30px;
+    width: 30px;
+    transform: rotate(-45deg);
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.heart:before, .heart:after{
+    content: "";
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+.heart:before {
+    top: -15px;
+    left: 0;
+  }
+  .heart:after {
+    left: 15px;
+    top: 0;
+  }
+input:focus::-webkit-input-placeholder { color:transparent; }
+tr:nth-child(even) {background: #FFF}
+tr:nth-child(odd) {background: #CCC}
+
+.inner-addon {
+  position: relative;
+//   width: 250px;
+  border: none;
+//   border-radius: 15px;
+//   border: solid 1px #ccc;
+  height: 25px;
+  /* position: relative; */
+  margin: 5px;
+  float: left;
+  outline: none;
+  font-size: 12px;
+}
+
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 0px;
+  pointer-events: none;
+  outline: none;
+}
+
+.left-addon .glyphicon  {
+  left:  0px;
+  font-size: 18px;
+  vertical-align: middle;
+  margin-top: 5px;
+  margin-left: 55px;
+}
+
+.left-addon input  { padding-left:  30px; }
